@@ -1,0 +1,138 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage[utf8]{inputenc}
+\usepackage{epsfig,graphicx}
+\usepackage{multicol,pst-plot}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{upgreek}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=1cm]{geometry}
+\usepackage{tcolorbox}
+\usepackage{import}
+\pagestyle{empty}
+\DeclareMathOperator{\tr}{Tr}
+\renewcommand{\sp}[1]{$${\begin{split}#1\end{split}}$$}
+
+\usepackage{lipsum}
+\usepackage{mdframed}
+\usepackage{listings}
+\usepackage{color}
+
+% Margins
+% \topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+ % The problem environment introduced.                                     
+\newenvironment{problem}[2][Problem]                                  
+        {\begin{tcolorbox}[colback=white,colframe=gray!50,title=#1 #2]}
+        {\end{tcolorbox}}
+        % {\begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+        % {\end{mdframed}}
+% Define solution environment
+\newenvironment{solution}                      
+        {\begin{mdframed}\textit{Solution:} \\}
+        {\end{mdframed}}
+% Define an environments for proofs
+\newenvironment{myproof} 
+        {\textit{Proof:}}                                   
+        {\begin{flushright} Q.E.D. \end{flushright}}
+% Define a theorem environment and a notation one too
+\newenvironment{mytheorem}                    
+        {\begin{mdframed}\textbf{Theorem:} \\}
+        {\end{mdframed}}
+\newenvironment{notation}                      
+        {\begin{mdframed}\textit{Notation:} \\}
+        {\end{mdframed}}
+% A new example wouldnt so any harm either...  
+\newenvironment{example}                             
+        {\textit{Example:}\\}
+	{}
+%I should be ashamed to forget the definition environment
+\newenvironment{definition}
+	{\begin{mdframed}$\underline{\textit{Def}^\textit{n}:} $\\}
+	{\end{mdframed}}
+%Corollary envvvvvvvvv
+\newenvironment{corollary}
+	{\textbf{Corrolary:}\\}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+  \Huge{JAVA Notes}\\
+  \vspace{0.25cm}
+  \small{Gurmukh Singh}
+\end{center}
+
+\vspace{-1.75cm}
+
+\begin{flushright}
+  Instructor: \\ Dr. Silky
+\end{flushright}
+
+\vspace{-1.3cm}
+
+\begin{flushleft}
+  B.Tech. CSE
+\end{flushleft}
+
+\rule{15.5cm}{0.1mm}%{\linewidth}{0.1mm}
+
+% Optional TOC
+\tableofcontents
+\pagebreak
+
+%--Paper--
+
+\section{Introduction}
+\begin{itemize}
+  \item IOT refers nto a system of iterrelated, internet connected objects that are able to collect and transfer data over a wireless channel without humna intervention. 
+  \item IoT describes the network of physical objects - "things" - that are embedded with sensors, software, and other techonlogies. 
+  \item Insights aid in transforming business and lower costs with aid if reliable real time data through, 
+    \begin{itemize}
+      \item Reduction of wasted materials. 
+      \item Streamlined Oprational and mechanical processes. 
+      \item Expansion.
+    \end{itemize}
+\end{itemize}
+
+\subsection{How it works}
+\begin{enumerate}
+  \item Sensors/DEvices collect data
+  \item Data Processing makes the data useful. 
+  \item Connectivity sends the data to cloud. 
+  \item UI delivers the intel to the user. 
+\end{enumerate}
+
+\subsection{IOT Architecture}
+\begin{enumerate}
+  \item Things, sensors, controllers. 
+  \item Gateways and data acquisition 
+  \item Edge analytics. 
+  \item Data centre/ cloud platform
+\end{enumerate}
+
+\subsection{Layers in IoT Architecture}
+\begin{itemize}
+  \item Data management layer
+  \item Application layer
+  \item Network layer
+  \item Perception layer
+\end{itemize}
+
+\subsection{Advantages of IoT}
+\begin{itemize}
+  \item Efficient resource utilization.
+\end{itemize}
+\end{document}

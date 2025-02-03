@@ -1,0 +1,11 @@
+# Fdb version 4
+["pdflatex"] 1737102710.06936 "notes.tex" "notes.pdf" "notes" 1737102710.20722 2
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1727349926 41588 b43d3e860a4f94167ee1e725ff526a72 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1733327640 7112992 580678752b6f70731ddb81ad038cae76 ""
+  "notes.aux" 1737101112.24935 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "notes.tex" 1737102709.71711 801 37504ad17978767d090e0e2957e4c00d ""
+  (generated)
+  "notes.aux"
+  "notes.log"
+  "notes.pdf"
+  (rewritten before read)
