@@ -55,7 +55,7 @@
         {\end{mdframed}}
 % A new example wouldnt so any harm either...  
 \newenvironment{example}                             
-        {\textit{Example:}\\}
+        {\noindent\textit{Example:}\\}
 	{}
 %I should be ashamed to forget the definition environment
 \newenvironment{definition}
@@ -597,8 +597,787 @@ Come forth 3 cases:
     \end{example}
 \end{enumerate}
 
-\textbf{NON-HOMOGENEOUS SOLUTION}
-\section{Lattice}
-\section{GROUP THEORY yeah imma kms}
+\textbf{NON-HOMOGENEOUS SOLUTION}\\
+We have
+\begin{equation}
+  a_n = c_1 a_{n-1} + c_2 a_{n-2} + \dots + c_k a_{n-k} + f(n)
+\end{equation}
+\\
+where $f(n) \neq 0$\\ 
+From (2) the associated homogeneous linear recurrence relation is
+\begin{equation}
+  a_n = c_1 a_{n-1} + \dots + c_k a_{n-k} 
+\end{equation}
+We can get the solution of (3), Let say ($a_n^c$)\\
+Let $a_n^p$ is the particular solution of (2). Then the general solution of (2) can be written as 
+\[
+  a_n = a_n^c + a_n^p
+\]
 
+\begin{mytheorem}
+  Suppose that $a_n$ satisfies the relation 
+  \[
+    a_n = c_1 a_{n-1} + c_2a_{n-2} + \dots + c_k a_{n-k} + f(n)
+  \]
+  where $c_i \in \mathbb{R} \forall i$ and 
+  \[
+    f(n) = (b_tn^t + b_{t-1}n^{t-1} + \dots + b_1n+b_0) s^n 
+  \]
+  where $b_i, s \in \mathbb{R} \forall i$
+
+  Then the following cases.
+  \begin{enumerate}
+    \item If $s$ is not the root of the characteristic equation then the particular solution of (2) is of the type
+      \[
+        (p_tn^t + p_{t-1}n^{t-1} + \dots + p_1n + p_0 ) s^n
+      \]
+    \item if $s$ is root of the characteristic equation then the particular solution of (2) is of the type 
+      \[
+        n^m(p_tn^t + p_{t-1}n^{t-1} + \dots + p_1n + p_0 ) s^n
+      \]
+      where $m$ is the multiplicity of the root
+  \end{enumerate}
+\end{mytheorem}
+\begin{example}
+  Write the type of particular solution for the recurrence relation, $a_n = 6a_{n-1} -9a_{n-2} + f(n)$
+  \begin{enumerate}
+    \item $f(n) = 3^n$
+    \item $f(n) = n3^n$
+    \item $f(n) = n^2 2^n$
+  \end{enumerate}
+  \begin{solution}
+    The associated homogeneous linear recurrence relation:
+    \[
+      a_n - 6 a_{n-1} + 9a_{n-2} = 0
+    \]
+    So characteristic equation :
+    \[
+      x^2  - 6x + 9 = 0
+    \]
+    \[
+      \implies (x-3)^2 = 0
+    \]
+    \[
+      \implies x = 3,3
+    \]
+    \begin{enumerate}
+      \item $f(n) = 3^n$\\
+        comparing to $f(n) = (b_tn^t + b_{t-1}n^{t-1} + \dots + b_1n+b_0) s^n$ we get\\
+        so
+        \[
+          b_0 = 1, b_i = 0 \forall i > 0
+        \]
+        \\ 
+        $s = 3$ is root of the characteristic equation with multiplicity 2\\
+        So particular solution would be: 
+        \[
+          n^2 p_0 3^n
+        \]
+      \item $f(n) = n3^n$\\
+        comparing to $f(n) = (b_tn^t + b_{t-1}n^{t-1} + \dots + b_1n+b_0) s^n$ we get\\
+        so
+        \[
+          b_0 = 1, b_1 = 1, b_i = 0 \forall i > 1
+        \]
+        \\ 
+        $s = 3$ is root of the characteristic equation with multiplicity 2\\
+        So particular solution would be: 
+        \[
+          n^2 (p_1n + p_0) 3^n
+        \]
+      \item $f(n) = n^22^n$\\
+        comparing to $f(n) = (b_tn^t + b_{t-1}n^{t-1} + \dots + b_1n+b_0) s^n$ we get\\
+        so
+        \[
+          b_0 = 1, b_1 = 1, b_2 = 1, b_i = 0 \forall i > 1
+        \]
+        \\ 
+        $s = 2$ is root of the characteristic equation with multiplicity 2\\
+        So particular solution would be: 
+        \[
+          a_n^p = (p_2n^2+ p_1n + p_0) 2^n
+        \]
+        \[
+          a_n^c = (c_1 + c_2n) 3^n
+        \]
+        From the above 2 equations ; 
+        \begin{equation*}
+          (p_2 n^2 c p_1n + p_0) 2^n = 6(p_2(n-1)^2 + p_2(n-1) +p_0) 2^{n-1} - 9 (p_2(n-2)^2 + p_1(n2)+p_0)2^{n-2} + n^22^n 
+        \end{equation*}
+    \end{enumerate}
+  \end{solution}
+  \begin{example}
+    Solve:
+    \[
+      a_n = 6a_{n-1}- 9 a_{n-2} + n^22^n , a_0 = 1, a_1 = 2
+    \]
+    \begin{solution}
+      The associated homogeneous linear recurrence relation is $a_n = 6a_{n-1} - 9a_{n-2}$
+      So the characteristic equation is
+      \begin{align*}
+        x^2 - 6x + 9 &= 0 \\         
+        \implies x &= 3,3
+      \end{align*}
+      So 
+      \[
+        a_n^c = (c_1 + c_2n) 3^n
+      \]
+      for particular solution: 
+      \[
+        a_n^p = (b_2 n^2 + b_1 n + b_0) 2^n
+      \]
+      so the general solution :
+      \[
+        a_n = (c_1 + c_2n)3^n + (b_2 n^2 + b_1 n + b_0) 2^n
+      \]
+      putting the values of $a_0$ and $a_1$ we get 
+      \begin{align*}
+        1 &= c_1 3^0 + b_0 2^n \\ 
+        \implies 1 &= c_1 + b_0\\ \\ 
+        2 &= (c_1 + c_2) 3 + (b_2+ b_1 + b_0)2\\
+        \implies 2 &= 3c_1 + 3c_2 + 2b_2 + 2b_1 + 2b_0
+      \end{align*}
+      Comparing the coefficients of $2^n$ and $3^n$ in both sides: 
+      \begin{align*}
+        b_0 + b_1 + b_2 &= 1\\ 
+        c_1 + c_2 &= 0\\ 
+        c_1 &= 1\\ 
+        b_0 &= 0\\ 
+        c_2 &= -c_1 = -1
+      \end{align*}
+    \end{solution}
+  \end{example}
+\end{example}
+
+\section{Logic and Proof Techniques}
+
+\begin{definition}
+  Proposition(statement): is a declarative sentence that is either true or false but not both.
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item Ice floats on water. 
+    \item $2-x = 3$
+  \end{enumerate}
+\end{example}
+\subsection{Proof Techniques}
+\begin{definition}
+  \textbf{Conjecture:} Any statement given is a conjecture.\\
+  \textbf{Theorem:} A statement which is to be proved true.\\
+  \[
+    Conjecture + proof \rightarrow Theorem
+  \]
+  \textbf{Proof:} The technique by which we check whether the given statement is true or not\\
+\end{definition}
+
+There are the following proof techniques:
+
+\begin{enumerate}
+  \item Direct Proof
+  \item Proof by Contrapositive
+  \item Proof by Contradiction
+  \item Proof by Counterexample
+  \item Proof by Cases
+\end{enumerate}
+
+\subsubsection{Direct Proof}
+If we are given $p \to q$, then take $p$ and by implications of $p$, we arrive at $q$.\\
+\begin{example}
+  If $n$ is even then prove that $n^2$ is even.\\
+
+  Given: $n$ is even.\\
+  To prove: $n^2$ is even\\
+  Proof: let us say that \\
+  \begin{align*}
+    n &= 2k, k \in \mathbb{Z}\\
+    \implies n^2 &= 4k^2\\
+    \implies n^2 &= 2(2k^2)\\
+  \end{align*}
+\end{example}
+\begin{example}
+  For all integers $a$,$b$ and $c$ if $a|b$, and $b|c$ prove that $a|c$
+
+% TODO complete this
+\end{example}
+
+\subsubsection{Proof by Contrapositive}
+Suppose we have to prove that $p \implies q$, then it is equivalent to proving $\neg q \implies \neg p$
+
+\begin{example}
+  For all integers $a$ and $b$ if $a+b$ in odd then either $a$ is odd or $b$ is odd
+
+  $p: a+b$ is odd\\
+  $q: a$ is odd or $b$ is odd\\
+
+  $\neg p: a+b$ is even\\
+  $\neg q: a$ is even and $b$ is even\\
+  
+  since $p \implies q \equiv \neg q \implies \neg p$\\
+  We have $a$ is even and $b$ is even \\ 
+  \[
+    a = 2m, b = 2n, m,n \in \mathbb{Z}
+  \]
+  \begin{align*}
+    \implies a+b &= 2m +2n\\
+                &= 2(m+n)\\
+                &= 2k , k \in \mathbb{Z}
+  \end{align*}
+\end{example}
+
+\begin{example}
+  For every prime number $r$, if $r\neq 2$ then $r$ is odd
+\end{example}
+
+\subsubsection{Proof by Contradiction}
+We have co prove $p \implies q$\\ 
+Then it is equivalent to $\neg p \implies \neg q$\\
+
+for that we take $p$ is not true and then by implications, we arrive at some Contradiction.
+
+\begin{example}
+  $\sqrt 2$ is irrational. \\ 
+
+  suppose $\sqrt 2$ is a rational number.\\ 
+  Then we can represent it in form of $\frac{p}{q}$ such that $p$ and $q$ are coprimes\\
+
+  \begin{align*}
+    \implies &\sqrt 2 = \frac{p}{q}\\
+    \implies & 2 = \frac{p^2}{q^2}\\
+    \implies & 2 q^2 = {p^2}\\
+  \end{align*}
+
+  hence $p$ is an even number.
+  therefore we can write $p$ as 
+  \[
+    p = 2k 
+  \]
+  \[
+    p^2 = 4k^2
+  \]
+  \[
+    2q^2 = 4k^2
+  \]
+  \[
+    q^2 = 2k^2
+  \]
+
+  thus $q$ is also an even number.\\ this is a contradiction to the fact that $p$ and $q$ are coprime.
+\end{example}
+
+
+\section{Lattice}
+
+\subsection{Complement of an element}
+Let $L$ be a Lattice then an element $b \in L$ is said to be complement of $a\in L$ if 
+\[
+  a * b = 0
+\]
+\[
+  a \oplus b = 1
+\]
+
+An element may have no complement, unique complement or more than one complements
+
+\begin{mytheorem}
+  The following conditions always hold true:
+  \[
+    0' = 1
+  \]
+  \[
+    1' = 0
+  \]
+  and these complements are unique
+\end{mytheorem}
+
+\begin{definition}
+  A lattice $L$ is complemented if each element has atleast one complement. 
+\end{definition}
+
+\begin{definition}
+  A Lattice is said to be distributive if 
+  \[
+    a * (b \oplus c) = (a * b) \oplus (a * c)
+  \]
+  \[
+    a \oplus (b * c) = (a \oplus b) * (a \oplus c)
+  \]
+  This is true if each element has atmost one complement.
+\end{definition}
+
+\subsection{Boolean Algebra}
+\begin{definition}
+  A Lattice is Boolean if it is both complementary and distributive i.e. each element of  lattice has exactly one complement. 
+  Alternatively, A Lattice is Boolean if it is isomorphic to a $D_n$(divisors of n).
+\end{definition}
+
+\begin{example}
+  %TODO insert example, like that diamond thingy and exam example for not boolean 
+\end{example}
+
+\begin{mytheorem}
+  \noindent Here are some results to keep in mind.
+  \begin{enumerate}
+    \item If a lattice does not contain $2^n$ elements then it cannot be a boolean lattice.
+    \item if $\lvert L\rvert = 2^n$ Then it may or may not be boolean.
+    \item if $n = p_1 \times p_2 \times \dots p_k$ where each $p_i$ is a distinct prime then $L$ will be a boolean algebra.
+    \item Let $n \in \mathbb{Z}$ and $p^k | n$ for some $k > 1$ then $D_n$ is not a boolean algebra
+  \end{enumerate}
+\end{mytheorem}
+
+\subsection{Logic Gates and Circuits}
+
+Basic type of logic gates:
+\begin{enumerate}
+  \item OR Gate
+  \item AND Gate
+  \item NOT Gate
+\end{enumerate}
+
+\subsubsection{OR Gate}
+
+\[
+  Y = A * B \equiv A + B 
+\]
+
+$Y$ will be 0 if and only if $A$ and $B$ both are zero.
+
+\subsubsection{AND Gate}
+
+\[
+  Y = A \oplus B \equiv A \cdot B
+\]
+
+$Y$ will be 1 if and only if $A$ and $B$ both are 1.
+
+\subsubsection{NOT Gate}
+
+\[
+  Y = A' = \overline{A}
+\]
+
+$Y$ will just be the opposite of $A$.
+
+\subsubsection{Logic Circuit}
+\begin{definition}
+  Any combination of logic gates to get the desired output is called logic circuit.
+
+  Note that logic circuit follows the rules of boolean algebra.
+\end{definition}
+
+\subsubsection{NAND and NOR Gate}
+
+NAND Gate is the combination of AND and NOT Gate. \\ 
+NOR Gate is the combination of OR and NOT Gate.
+
+% TODO: Create the Truth Tables of these. Also read about k-maps.
+
+
+\section{GROUP THEORY yeah imma kms}
+  
+\subsection{Binary Operations}
+
+\begin{definition}
+  Let $A$ be a set then any operation $*$ on $A$ is binary operation if $\forall a, b \in A, a*b \in A$. 
+  For example, $(\mathbb{Z},+)$ is a group, but $(\mathbb{Z},/)$ is not.
+\end{definition}
+
+\subsection{Group}
+
+\begin{definition}
+  Let $G$ be a nonempty set with a defined binary operation $*$ then $G$ is called group if it satisfies a certian condition. 
+  \begin{enumerate}
+    \item Closure: $a*b \in G \forall a,b \in G$.
+    \item Associativity: $(a*b)*c = a*(b*c)$.
+    \item Existence of Identity: $\exists e \in G, a*e = a \forall a \in G$.
+    \item Existence of Inverse: $\forall a \in G\ \exists\ b \in G$ such that $a*b = e$
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  $(\mathbb{Z},+)(\mathbb{Q},+)(\mathbb{R},+)$ are groups\\
+  $(\mathbb{Z},-)$ is not a group because $-$ is not associative\\
+  $(\mathbb{N},+)$ is not a group because there does not exist an identity in $\mathbb{N}$\\ 
+  $(\mathbb{Z},\cdot)$ is not a group because there is no inverse for $a \in \mathbb{N}$\\
+  $(\mathbb{R},\cdot)$ is not a group because there is no inverse for $0 \in \mathbb{R}$\\
+  $(\mathbb{R}\setminus \{0\},\cdot)$ is a group. 
+\end{example}
+
+\begin{example}
+  let $X = \mathbb{M}(\mathbb{R})_{2\times 2}$, then $G = (X, +)$ is a group.\\ 
+  However $G' = (X, \cdot)$ is not a group as there may or may not exist an inverse for a real matrix.
+\end{example}
+
+\subsection{Abelian Group}
+Let $G$ be a group with binary operation * then $G$ is abelian if 
+\[
+  a*b = b*a \forall a,b \in G
+\]
+
+\begin{example}
+  $(\mathbb{Z}, +)$ is a group where $a + b = b + a \forall a,b \in \mathbb{Z}$ \\
+  Thus $(\mathbb{Z}, +)$ is an abelian group.
+\end{example}
+
+\begin{example}
+  $GL(2, \mathbb{R}) = $ group of non singular matrices of order 2 with real entities\\ 
+  note that it is not necessary that the product of two matrices be commutative.
+\end{example}
+
+\begin{example}
+  $SL(2, \mathbb{R}) = $ group of matrices of order 2 with real entities and determinant 1\\ 
+  note that it is not necessary that the product of two matrices be commutative.
+\end{example}
+
+\subsection{Unitary group}
+
+\begin{definition}
+\[
+  U(n) = \{a:a\in\mathbb{Z}, gcd(a,n) = 1, a < n\}
+\]
+\end{definition}
+
+\begin{example}
+\[
+  U(10) = \{1,3,7,9\}
+\]
+
+Note that $(U(10), \odot_n)$\\
+$\odot_n$ is multiplication moduolo
+\end{example}
+
+Note: 
+\[
+  a \oplus_n b = a + b \pmod n
+\]
+\[
+  a \odot_n b = a \cdot b \pmod n
+\]
+
+\subsubsection{Cayley Table}
+It is a visual table representation of a group. we just multiply the group with itself to check for inverses\\
+
+\begin{example}
+  \[
+    \mathbb{Z}_n = \{0,1, \dots, n-1\}
+  \]
+  then $(\mathbb{Z}_n,\oplus_n)$ is a group with identity 0.\\
+  and $<\mathbb{Z}_n, \oplus_n>$ is an abelian group.
+\end{example}
+
+
+\subsection{Properties of a group}
+\begin{enumerate}
+  \item Uniqueness of identity\\ 
+    The identity of the group must be unique. To prove take two distinct identities and show that they are equal.
+  \item Cancellation Laws:- \\
+    Let $G$ be a group and $a,b,c \in G$. Then 
+    \begin{enumerate}
+      \item $ab = ac \implies b = c$ (left cancellation law) 
+      \item $ab = cb \implies a = c$ (right cancellation law)
+    \end{enumerate}
+  \item Uniqueness of inverse
+  \item Let $G$ be a group then $(ab)^{-1} = b^{-1}a^{-1}$
+  \item Let $G$ be an abelian group then $(ab)^{-1} = b^{-1}a^{-1} = a^{-1}b^{-1}$
+\end{enumerate}
+
+\begin{myproof}
+  \begin{enumerate}
+    \item 
+    \item 
+      \begin{enumerate}
+        \item To show: $ab = ac \implies b = c$ \\
+          Proof: 
+          \begin{align*}
+            ab &= ac \\ 
+               &\text{ since $G$ is a group $\exists a^{-1} \in G$. So premultiply by $a^{-1}$}\\
+            a^{-1}ab &= a^{-1}ac \\ 
+            eb &= ec \\ 
+            b &= c \\ 
+          \end{align*}
+      \end{enumerate}
+    \item Let $G$ be a group and $a \in G$. 
+      Let $b, c$ be the inverses of $a$. 
+      since $b$ is inverse of $a$:
+      \[
+        ab = ba = e 
+      \]
+      similarly
+      \[
+        ac = ca = e 
+      \]
+      From the two above statements we can infer that: 
+      \[
+        ab = ac = e
+      \]
+      From the left cancellation law
+      \[
+        b = c
+      \]
+  \end{enumerate}
+\end{myproof}
+
+\subsection{Subgroups}
+\begin{definition}
+  The order of a group is the number of elements in a group.\\
+  \begin{example}
+    \[
+      G = U(10) = \{1,3,7,9\}
+    \]
+    \[
+      O(G) = 4
+    \]
+  \end{example}
+\end{definition}
+
+\begin{definition}
+  \textbf{The order of an element in a group}\\
+  Let $G$ be a group and $a \in G$ then oredr of $a$ is defined as:
+  \[
+    O(a) = \{n: a^n = e, a\in G\} (\cdot)
+  \]
+  \[
+    O(a) = \{n: na = e, a\in G\} (+)
+  \]
+  then $n$ is called order of $a$
+\end{definition}
+
+\begin{definition}
+  Let $H$ be subset of $G$ then $H$ is called subgroup of $G$ if $H$ itself is group under the same operation as that of $G$. \\
+  Notation: $H \leq G$
+\end{definition}
+
+\begin{example}
+  $(\mathbb{Z}, +) \leq (\mathbb{R}, +)$ 
+\end{example}
+
+\begin{example}
+  $(\mathbb{Z}_{10}, \oplus_{10} \not\leq (\mathbb{R}, +)$ as the operation is not the same
+\end{example}
+
+\subsubsection{One step subgroup test}
+Let $H$ be subset of the group $G$. Then $H$ is ssubgroup of $G$ if 
+\[
+  ab^{-1} \in H \forall a,b \in H (\text{wrt multiplication})
+\]
+\[
+  a-b \in H \forall a,b \in H (\text{wrt addition})
+\]
+
+\begin{example}
+  Let $G$ be a Abelian group with identity $e$ and $H = \{x \in G: x^2 = e\}$ then check for $H \leq G$
+
+  by one step test: 
+  \[
+    ab^{-1} \in H \forall a,b \in H (\text{wrt multiplication})
+  \]
+
+  since $a,b \in H, a^2 = e, b^2 = e$
+
+  so $(ab^{-1})^2 = ab^{-1}ab^{-1} = aab^{-1}b^{-1} = a^2 b^{-2} = e e^{-1} = e$\\
+  Therefore $H \leq G$
+  $\hfill \blacksquare$
+\end{example}
+
+\subsubsection{Two step subgroup test}
+Let $G$ be a group and $H \subseteq G$ then iff: 
+\begin{enumerate}
+  \item $ab \in H \forall a, b \in H$
+  \item $a \in H \forall a \in H$
+\end{enumerate}
+
+\begin{example}
+  Let $G = GL(2,\mathbb{Z})$ with addition. \\ 
+  Let $H = \Big\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} : a + b + c + d = 0 \Big\}$
+\end{example}
+
+\begin{example}
+  $G = GL(2,\mathbb{R})$\\
+  $H = \Big \{ \begin{pmatrix}
+      a & 0 \\ 
+      0 & b 
+  \end{pmatrix} : a,b \in \mathbb{Z}\setminus \{0\} \Big\}$
+
+  Then $H$ will not be a subgroup because there may or may not exist an inverse of $a \in H$ in $H$
+\end{example}
+
+\subsection{Cyclic groups}
+a group $G$ is called cyclic if $G = <a>$ where 
+\[
+  <a> = \{a^n : n \in \mathbb{Z} \} \text{ With respect to multiplication}
+\]
+\[
+  <a> = \{na : n \in \mathbb{Z} \} \text{ With respect to addtion}
+\]
+
+\begin{example}
+  $U(10) = \{1,3,7,9\}$ under multiplication $\odot_{10}$
+  \begin{align*}
+    3^1 = 3\\
+    3^2 = 9\\
+    3^3 = 7\\
+    3^4 = 1\\
+    3^5 = 3\\
+  \end{align*}
+  So $U(10)$ is cyclic
+\end{example}
+
+Note: in $\mathbb{Z}_n$, the generators are the numbers which are coprime to $n$. so $\mathbb{Z}_{10}$ has 1,3,7,9 as it's generators under addition modulo $n$
+
+\subsubsection{Euler's phi (totient) function}
+
+\[
+  \phi(1) = 1
+\]
+
+for $n > 1$  
+
+\[
+  \phi(n) = \begin{cases}
+    n-1, &n \text{ is prime}\\
+    p^m - p^{m-1}, &n = p^m\\
+    (p-1)(q-1), &n = pq\\
+  \end{cases}
+\]
+
+\vspace{0.5in}
+
+Note that $\mathbb{Z}$ has only $1$ and $-1$ as it's generators. It is also the only infinite cyclic group
+
+\subsection{Subgroups of $\mathbb{Z}_n$}
+For any divisor $k$ of $n$, the set $\langle \frac{n}{k} \rangle$ is a unique subgroup of order $k$ and thees are the only subgroup of $\mathbb{Z}_n$.
+
+\begin{example}
+  Let us take $\mathbb{Z}_{30}$
+
+  \begin{align*}
+    \langle \frac{30}{1} \rangle = \langle 30 \rangle &= \{ 0 \}\\
+    \langle \frac{30}{2} \rangle = \langle 15 \rangle &= \{ 0, 15\}\\
+    \langle \frac{30}{3} \rangle = \langle 10 \rangle &= \{ 0, 10, 20 \}\\
+    \langle \frac{30}{5} \rangle = \langle 6\rangle &= \{ 0, 6, 12, 18, 24 \}\\
+    \langle \frac{30}{6} \rangle = \langle 5\rangle &= \{ 0, 5, 10, 15, 20, 25\}\\
+    \langle \frac{30}{10} \rangle = \langle 3 \rangle &= \{ 0, 3, 6, 9, 12, 15, 18, 21, 24, 27\}\\
+    \langle \frac{30}{15} \rangle = \langle 2 \rangle &= \{ 0, 2, 4, 6, 8, 10, 12, \dots, 28\}\\
+    \langle \frac{30}{30} \rangle = \langle 1 \rangle &= \{ 0, 1, 2, 3 ,4 , 5, 6 , \dots, 29\}\\
+  \end{align*}
+\end{example}
+
+\subsection{Center of a group}
+\[
+  Z(G) = \{ x \in G ; xa = ax \forall a \in G \}
+\]
+
+in leyman terms, collection of all elements which commute with each other 
+
+Note: if $G$ is abelian then $Z(G) = G$
+
+\begin{example}
+  if $G = GL(2,\mathbb{R}) = \left\{ \begin{pmatrix}
+      a & b \\ c & d
+  \end{pmatrix}: a,b,c,d \in \mathbb{R}\right\}$\\
+  $Z(G) = \left\{ \begin{pmatrix}
+      e & 0 \\ 0 & e 
+  \end{pmatrix} : e \in \mathbb{R}\right\}$
+\end{example}
+
+
+\begin{fbox}
+  {Note: $Z(G) \leq G$}
+\end{fbox}
+
+\subsection{Centralizer of an element}
+for an element $a \in G$
+\[
+  C(a) = \left\{ x \in G : xa = ax \right\}
+\]
+
+Note: if $G$ is abelian then $C(a) = G$
+
+\begin{example}
+  \[
+    G = GL(2,\mathbb{R})
+  \]
+  find $C\left( \begin{bmatrix}
+      1& 1 \\ 1& 0
+  \end{bmatrix}\right)$
+   
+
+  \noindent Suppose $\begin{pmatrix}
+    a & b \\ c & d
+  \end{pmatrix} \in G$
+
+  \[
+    \begin{pmatrix}
+      a& b \\ c& b
+    \end{pmatrix} \begin{pmatrix}
+      1& 1\\ 1& 0
+    \end{pmatrix} = \begin{pmatrix}
+      1& 1\\ 1& 0
+    \end{pmatrix} \begin{pmatrix}
+      a& b \\ c& b
+    \end{pmatrix}
+  \]
+
+  \[
+    \begin{pmatrix}
+      a+b & a \\ c+d & c
+    \end{pmatrix} = \begin{pmatrix}
+      a+c & b+d \\ a & b
+    \end{pmatrix}
+  \]
+\end{example}
+
+\subsection{Partition of numbers}
+Let $n$ be a pasitive integer then teh ways in which the number can be written form partition of $n$.
+
+\begin{example}
+  \begin{align*}
+    n = 1&, 1\\
+    n = 2&, 2\\ 
+         &, 1+1\\ 
+    n = 3&, 3\\ 
+         &, 2+1\\ 
+         &, 1+1+1\\ 
+    n = 4&, 4\\ 
+         &, 3+1\\ 
+         &, 2+2\\ 
+         &, 2+1+1\\ 
+         &, 1+1+1+1
+  \end{align*}
+\end{example}
+
+Formula: \[
+  P(n+1) = \sum_{r=0}^n {n \choose r} P(r) 
+\]
+given $P(0) = 1$
+
+So 
+\begin{align*}
+  P(4) &= P(3+1)\\ 
+       &= \sum_{r=0}^3 {3 \choose r} P(r)\\ 
+       &= {3 \choose 0} P(0) + {3 \choose 1} P(1) + {3 \choose 2} P(2) + {3 \choose 3} P(3) \\
+       &= 1 + 3\times 1 + 3\times 2 + 1\times 3
+       &= 13
+\end{align*}
+
+\subsection{Order of elements in $S_n$}
+Take $n$ and make the partitions of $n$.
+
+\begin{example}
+  \begin{align*}
+    S_4 && 4 &\rightarrow LCM = 4\\
+        && 1 + 3 &\rightarrow LCM = 3\\
+        && 2 + 2 &\rightarrow LCM = 2\\
+        && 1 + 1 + 2 &\rightarrow LCM = 1\\
+        && 1 + 1 + 1 + 1 &\rightarrow LCM = 1
+  \end{align*}
+  It means that $S_4$ has elements of order 1, 2, 3, 4.\\
+\end{example}
+
+\noindent To find the number of elements of order $m$ in $S_n$. \\
+Let $n = p_1 + p_2 + \dots$\\
+
+\[
+  \frac{n!}{p_1^{m_1} \cdot m_1! \times p_2^{m_2} \cdot m_2!}
+\]
 \end{document}

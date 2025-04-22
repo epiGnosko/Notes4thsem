@@ -1,0 +1,374 @@
+\documentclass[11pt,letterpaper]{article}
+\textwidth 6.5in
+\textheight 9.in
+\oddsidemargin 0in
+\headheight 0in
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage[utf8]{inputenc}
+\usepackage{epsfig,graphicx}
+\usepackage{multicol,pst-plot}
+\usepackage{pstricks}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{upgreek}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\pagestyle{empty}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\newcommand{\ds}{\displaystyle}
+% The problem environment introduced.                                     
+\newenvironment{problem}[2][Problem]                                  
+        { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+        {  \end{mdframed}}
+% Define solution environment
+\newenvironment{solution}                      
+        {\begin{mdframed}\textit{Solution:} \\}
+        {\end{mdframed}}
+% Define an environments for proofs
+\newenvironment{myproof} 
+        {\textit{Proof:}}                                   
+        {\begin{flushright} Q.E.D. \end{flushright}}
+% Define a theorem environment and a notation one too
+\newenvironment{mytheorem}                    
+        {\begin{mdframed}\textbf{Theorem:} \\}
+        {\end{mdframed}}
+\newenvironment{notation}                      
+        {\begin{mdframed}\textit{Notation:} \\}
+        {\end{mdframed}}
+% A new example wouldnt so any harm either...  
+\newenvironment{example}                             
+        {\textit{Example:}\\}
+	{}
+%I sholud be ashamed to forget the definition environment
+\newenvironment{definition}
+	{\begin{mdframed}$\underline{\textbf{Def}^\textbf{n}:} $\\}
+	{\end{mdframed}}
+%Corollary envvvvvvvvv
+\newenvironment{corollary}
+	{\textbf{Corrolary:}\\}
+
+\begin{document}
+\pagestyle{plain}
+\pagenumbering{roman}
+
+\begin{center}
+  \Huge{Assignment \\ Discerte Mathematics}
+\end{center}
+\vspace{1in}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{images.png}
+\end{center}
+\vspace{30px}
+\begin{center}
+\begin{tabular}{llr}
+SUBMITTED TO           &  & SUBMITTED BY       \\
+Dr. SANJAY KUMAR       &  & MANAS KHANNA \\
+ASET, AMITY UNIVERSITY &  & B.TECH.–4th SEM    \\
+MOHALI                 &  & A25305223002     
+\end{tabular}
+\end{center}
+
+\pagebreak
+\pagenumbering{arabic}
+
+\begin{flushleft}
+Student Name: Gurmukh Singh\\
+Roll no: A25305223008
+\end{flushleft}
+
+\begin{flushright}\vspace{-15mm}
+ \includegraphics[height=2cm]{Amity.png}
+\end{flushright}
+
+\begin{center}\vspace{-1cm}
+\textbf{\large{Discrete Mathematics}}\\
+Assignment\\
+\today
+\end{center}
+
+\begin{flushright}
+Instuctor:\\
+Mr. Sanjay Kumar
+\end{flushright}
+
+\noindent\rule{\textwidth}{0.1mm}
+
+\bigskip
+\bigskip
+
+\begin{problem}{1}
+The college catering service must decide if the mix of food that is supplied for receptions is appropriate. Of the 100 people questioned, 37 say they eat fruits, 33 say they eat vegetables, 9 say they eat cheese and fruits, 12 eat cheese and vegetables, 10 eat fruits and vegetables, 12 eat only cheese, and 3 report they eat all three offerings. How many people surveyed eat cheese? How many do not eat any of the offerings?
+\end{problem}
+
+\begin{solution}
+  We assign the following sets:
+  \begin{align*}
+    U \rightarrow& \text{ Universal set, all the 100 people questioned }\\ 
+    F \rightarrow& \text{ The set of all the people who eat fruits }\\ 
+    V \rightarrow& \text{ The set of all the people who eat vegetables }\\ 
+    C \rightarrow& \text{ The set of all the people who eat cheese }\\ 
+  \end{align*}
+  So we can rewrite the information given in this manner
+  \begin{align*}
+    \lvert U \rvert =& 100\\
+    \lvert F \rvert =& 37\\
+    \lvert V \rvert =& 33\\
+    \lvert C \cap F \rvert =& 9\\
+    \lvert C \cap V \rvert =& 12\\
+    \lvert F \cap V \rvert =& 10\\
+    \lvert C \setminus (A \cup B) \rvert =& 12\\
+    \lvert C \cap F \cap V \rvert =& 3\\
+  \end{align*}
+  We have to find out how many people eat cheese and how many do not eat any of the offerings. \\ 
+  We can break down the people who eat cheese into four parts: 
+  \begin{enumerate}
+    \item People who eat only cheese 
+    \item People who eat cheese with fruits
+    \item People who eat cheese with vegetables
+    \item People who eat all the offerings
+  \end{enumerate}
+  By the information given, we can extract this in the following way.
+  \begin{align*}
+    \lvert C \rvert =& \lvert C \cap F \rvert + \lvert C \cap V \rvert + \lvert C \setminus (A \cup B) \rvert - \lvert C \cap F \cap V \rvert\\ 
+                    =& 9 + 12 + 12 - 3\\
+                    =& 30
+  \end{align*}
+  Now that we have this information, we can find out how many people eat none of the offerings.\\ 
+  That is as simple as: 
+  \begin{align*}
+    \lvert U \rvert - \lvert (C \cup F \cup V) \rvert &= \lvert U \rvert - [\lvert C \rvert + \lvert F \rvert + \lvert V \rvert - \lvert C \cap F \rvert - \lvert C \cap V \rvert - \lvert F \cap V \rvert + \lvert C \cap F \cap V \rvert]\\ 
+                                                      &= 100 - [30 + 37 + 33 - 9 - 12 - 10 + 3]\\
+                                                      &= 100 - 72\\
+                                                      &= 28 & \blacksquare
+  \end{align*}
+\end{solution}
+
+\begin{problem}{2}
+Solve the recurrence relation:
+\[
+  a_n = 7a_{n-2} + 6 a_{n-3}, a_1 = 3, a_2 = 6, a_3 = 10
+\]
+\end{problem}
+
+\begin{solution}
+\textbf{Step 1: Characteristic Equation}\\
+We write the recurrence as:
+\[
+a_n - 7a_{n-2} - 6a_{n-3} = 0
+\]
+The characteristic equation is:
+\[
+r^3 - 7r - 6 = 0
+\]
+
+\noindent\textbf{Step 2: Find the Roots}\\
+Try $r = -1$:
+\[
+(-1)^3 - 7(-1) - 6 = -1 + 7 - 6 = 0
+\]
+So $r = -1$ is a root.
+
+Divide $r^3 - 7r - 6$ by $(r + 1)$:
+\[
+r^3 - 7r - 6 = (r + 1)(r^2 - r - 6)
+\]
+Factor $r^2 - r - 6$:
+\[
+r^2 - r - 6 = (r - 3)(r + 2)
+\]
+Thus, the roots are:
+\[
+r_1 = -1, \quad r_2 = 3, \quad r_3 = -2
+\]
+
+\noindent\textbf{Step 3: General Solution}\\
+The general solution is:
+\[
+a_n = A(-1)^n + B \cdot 3^n + C(-2)^n
+\]
+
+\noindent\textbf{Step 4: Solve for Coefficients}\\
+Use the initial conditions:
+
+For $n=1$:
+\[
+a_1 = A(-1)^1 + B \cdot 3^1 + C(-2)^1 = -A + 3B - 2C = 3
+\]
+
+For $n=2$:
+\[
+a_2 = A(-1)^2 + B \cdot 3^2 + C(-2)^2 = A + 9B + 4C = 6
+\]
+
+For $n=3$:
+\[
+a_3 = A(-1)^3 + B \cdot 3^3 + C(-2)^3 = -A + 27B - 8C = 10
+\]
+
+This gives the system:
+\[
+\begin{cases}
+-A + 3B - 2C = 3 \\
+A + 9B + 4C = 6 \\
+-A + 27B - 8C = 10
+\end{cases}
+\]
+
+Add the first and second equations:
+\begin{align*}
+(-A + 3B - 2C) + (A + 9B + 4C) &= 3 + 6 \\
+12B + 2C &= 9 \\
+6B + C &= \frac{9}{2} \tag{1}
+\end{align*}
+
+Subtract the first from the third:
+\begin{align*}
+(-A + 27B - 8C) - (-A + 3B - 2C) &= 10 - 3 \\
+24B - 6C &= 7 \\
+4B - C &= \frac{7}{6} \tag{2}
+\end{align*}
+
+Add equations (1) and (2):
+\begin{align*}
+6B + C + 4B - C &= \frac{9}{2} + \frac{7}{6} \\
+10B &= \frac{27}{6} + \frac{7}{6} = \frac{34}{6} = \frac{17}{3} \\
+B &= \frac{17}{30}
+\end{align*}
+
+Now substitute $B$ back into (1):
+\begin{align*}
+  6B + C &= \frac{9}{2} \\
+  6 \cdot \frac{17}{30} + C &= \frac{9}{2} \\
+  \frac{102}{30} + C &= \frac{9}{2} \\
+  \frac{17}{5} + C &= \frac{9}{2} \\
+  C &= \frac{9}{2} - \frac{17}{5} \\
+  C &= \frac{45 - 34}{10} \\
+  C &= \frac{11}{10}\\
+\end{align*}
+
+Now use the first original equation to solve for $A$:
+\begin{align*}
+-A + 3B - 2C &= 3 \\
+-A + 3 \cdot \frac{17}{30} - 2 \cdot \frac{11}{10} &= 3 \\
+-A + \frac{51}{30} - \frac{22}{10} &= 3 \\
+-A + \frac{51}{30} - \frac{66}{30} &= 3 \\
+-A - \frac{15}{30} &= 3 \\
+-A - \frac{1}{2} &= 3 \\
+-A &= 3 + \frac{1}{2} = \frac{7}{2} \\
+A &= -\frac{7}{2}
+\end{align*}
+
+\noindent\textbf{Step 5: Final Solution}\\
+Thus, the closed-form solution is:
+\[
+\boxed{
+a_n = -\frac{7}{2}(-1)^n + \frac{17}{30} \cdot 3^n + \frac{11}{10}(-2)^n
+}
+\]
+\end{solution}
+
+
+\begin{problem}{3}
+Determine values of the constants $A$ and $B$ such that $a_n = An+B$ is a solution of recurrence relation
+\[
+  a_n = 2a_{n-1} + n + 5
+\]
+\begin{enumerate}
+  \item Find all solutions of this recurrence relations
+  \item Find the solution of this recurrence relation if $a_0 = 4$
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+  First we need to find the constants $A$ and $B$. For that let's put $a_n = An+B$ in $a_n = 2a_{n-1} + n + 5$.
+  \begin{align*}
+    An + B &= 2(A(n-1) + B) + n + 5\\
+           &= 2An -2A + 2B + n + 5\\ 
+           &= 2An + n -2A + 2B + 5\\ 
+           &= (2A+ 1)n + (-2A + 2B + 5)
+  \end{align*}
+  Comparing the coefficients we get 
+  \begin{align*}
+    A &= 2A + 1 &&& B &= -2A + 2B + 5\\
+    \implies -A &= 1 &&& \implies-B &= -2A + 5\\
+    \implies A &= -1 &&& \implies-B &= -2A + 5\\
+               & &&& \implies-B &= -2(-1) + 5\\
+               & &&& \implies B &= -7\\
+  \end{align*}
+  \begin{enumerate}
+    \item
+      To find all solutions we just need to add the homogeneous solution to the particular solution we have found.
+      \[
+        a_n = C \cdot 2^n -n -7
+      \]
+      where $C$ is a constant. We can also say $C \in \mathbb{R}$ in mathematical terms.
+    \item 
+      To find particular solutions when $a_0 = 4$, we simply put the value in the general solution
+      \begin{align*}
+        a_0 = C \cdot 2^0 -0 -7 &= 4\\
+        \implies C -7 &= 4\\
+        \implies C &= 11\\
+      \end{align*}
+      Thus the particular solution when $a_0= 4$ is 
+      \[
+        a_n = 11 \cdot 2^n - n - 7
+      \]
+  \end{enumerate}
+\end{solution}
+
+\begin{problem}{4}
+By mathematical induction, show that $7^n - 2^n$ is divisible by 5 for all $n \in \mathbb{N}$
+\end{problem}
+
+\begin{solution}
+  Note: I am assuming $\mathbb{N} = \{0,1,2, \dots\}$ because that is what I grew up with. The solution would hold true even if we do not assume zero to be a natural number\\
+  \textbf{Base case:}\\
+  We have to show that this holds true for $n = 0$\\ 
+  put $n = 0$ in $7^n - 2^n$ we get 
+  \begin{align*}
+    7^0 - 2^0 = 0 \equiv 0 \pmod 5
+  \end{align*}
+  as $x \equiv 0 \pmod n$ means $n \vert x$ we have proved the base step.\\
+  \noindent\textbf{Induction step:}\\
+  let us assume that $7^n - 2^n \equiv 0 \pmod 5$ is true for $n = k$\\
+  Then we have to prove that the statement holds true for $n = k + 1$\\
+  \begin{align*}
+    7^k - 2^k &\equiv 0 \pmod 5 \tag{1}\\
+    \implies (7^k - 2^k)(7+2) &\equiv 0\times(7+2) \pmod 5 \\
+    \implies 7^{k+1} + 2\cdot7^k - 7\cdot2^k - 2^{k+1} &\equiv 0 \pmod 5\\
+    \implies 7^{k+1} - 2^{k+1} + 2\cdot7^k - 7\cdot2^k &\equiv 0 \pmod 5\\
+    \implies 7^{k+1} - 2^{k+1} + 2\cdot7^k - 2\cdot2^k - 5\cdot2^k &\equiv 0 \pmod 5\\
+    \implies 7^{k+1} - 2^{k+1} + 2(7^k - 2^k) - 5\cdot2^k &\equiv 0 \pmod 5\\
+    \implies 7^{k+1} - 2^{k+1} &\equiv - 2(7^k - 2^k) + 5\cdot2^k \pmod 5\\
+    \implies 7^{k+1} - 2^{k+1} &\equiv - 2(0) + 5\cdot2^k \pmod 5 \tag{from (1)}\\
+    \implies 7^{k+1} - 2^{k+1} &\equiv 5\cdot2^k \equiv 0 \pmod 5 \\
+  \end{align*}
+\end{solution}
+\end{document}
