@@ -57,3 +57,18 @@
 \contentsline {subsection}{\numberline {4.10}Centralizer of an element}{25}{subsection.4.10}%
 \contentsline {subsection}{\numberline {4.11}Partition of numbers}{25}{subsection.4.11}%
 \contentsline {subsection}{\numberline {4.12}Order of elements in $S_n$}{26}{subsection.4.12}%
+\contentsline {section}{\numberline {5}Cosets of $H$ in $G$}{26}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Normal Subgroup}{28}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Graph Theory}{29}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Types of graph}{29}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Directed graph}{29}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Undirected graph}{29}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Null graph}{29}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Self loop}{29}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Degree of a vertex in an undirected graph}{29}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Degree of a vertex in a directed graph}{30}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Path}{30}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Types of path}{30}{subsubsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.7}Representation of graph}{30}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Matrix representation by Adjacency matrix}{31}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Bipartite graph ($G(V_1,V_2,E$)}{31}{subsection.6.9}%

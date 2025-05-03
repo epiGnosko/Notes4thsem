@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1745212451.65468 "Notes.tex" "Notes.pdf" "Notes" 1745212452.3057 0
+["pdflatex"] 1746080048.02929 "Notes.tex" "Notes.pdf" "Notes" 1746080049.04045 0
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1742685315 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1742685315 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -40,6 +40,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1742685315 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1742685315 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1742685315 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1742685315 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1742685315 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1742685315 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1742685315 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
@@ -219,10 +220,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743265964 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743265941 2008240 3ae93530bca485ff698f87dbe291712b ""
-  "Notes.aux" 1745212452.23793 7919 09650f25b945749a6b2eed8a1f222c16 "pdflatex"
-  "Notes.out" 1745212452.23973 9398 27df037f43a208c02593d95cbecbed22 "pdflatex"
-  "Notes.tex" 1745212450.26592 37714 f3d5f28d2bc897c58ea772acaa6e1805 ""
-  "Notes.toc" 1745212452.23973 5301 8f26574288fa4d629108502468287ff2 "pdflatex"
+  "Notes.aux" 1746080048.92993 9850 4bfd9fbcb21d30a04ee3d2e46f605834 "pdflatex"
+  "Notes.out" 1746080048.93093 11852 d1def73db0a29a6181ec84767504d61f "pdflatex"
+  "Notes.tex" 1746080047.53497 44895 1ce68d0c41a5f5ca5e4b775a31a4280e ""
+  "Notes.toc" 1746080048.93093 6617 89463f870ab75529054a043de5321eb7 "pdflatex"
   "figs/venn diagram.png" 1737433114.06436 58307 7367359b7135f1ec666711c89d8e6a80 ""
   (generated)
   "Notes.aux"
